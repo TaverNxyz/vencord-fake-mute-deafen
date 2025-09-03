@@ -1,6 +1,3 @@
-Here’s the **revised README** with the correct and up-to-date installation instructions based on the official Vencord documentation—highlighting how to install **custom (user) plugins** properly:
-
----
 
 # Fake Mute & Deafen (Vencord Plugin)
 
