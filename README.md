@@ -101,10 +101,3 @@ It does **not** provide real privacy or security. Use responsibly.
 | 5    | Enable plugin from Vencord settings in Discord                     |
 
 ---
-
-Let me know if you'd like further tweaks—maybe clearer developer instructions, code templates, or even a visual guide!
-
-[1]: https://docs.vencord.dev/installing/?utm_source=chatgpt.com "Installing Vencord | Vencord Docs"
-[2]: https://github.com/chunkbanned/VCUserPluginsInstaller?utm_source=chatgpt.com "This script will help people install custom plugins to Vencord."
-[3]: https://docs.vencord.dev/installing/custom-plugins/?utm_source=chatgpt.com "Installing custom plugins - Vencord Docs"
-[4]: https://docs.vencord.dev/intro/?utm_source=chatgpt.com "Introduction - Vencord Docs"
