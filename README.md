@@ -1,115 +1,113 @@
+Here’s the **revised README** with the correct and up-to-date installation instructions based on the official Vencord documentation—highlighting how to install **custom (user) plugins** properly:
 
-````
+---
+
 # Fake Mute & Deafen (Vencord Plugin)
 
-A plugin for [Vencord](https://github.com/Vencord/Vencord) that lets you **pretend** to mute or deafen in Discord.  
+A plugin for [Vencord](https://github.com/Vencord/Vencord) that lets you **pretend** to mute or deafen in Discord.
 When enabled, others will see you as muted/deafened while you can still hear and speak.
 
-⚠️ This is a **fake client-side effect**. Do not rely on it for privacy/security.  
+⚠️ This is a **fake client-side effect**. Do not rely on it for privacy/security.
 
 ---
 
-## ✨ Features
-- Adds **Fake Mute** and **Fake Deafen** toggles to the right-click context menu on the Mute/Deafen buttons.
-- Bright yellow button highlighting while fake mode is active.
-- Suppresses UI sound effects during silent toggles.
-- Hooks WebSocket events to swallow unwanted state updates.
-- Auto-cleans fake states when changing voice channels.
-- Toast notifications to confirm toggle actions.
+## Features
+
+* Adds **Fake Mute** and **Fake Deafen** toggles to the right-click context menu on the Mute/Deafen buttons.
+* Bright yellow button highlighting while fake mode is active.
+* Suppresses UI sound effects during silent toggles.
+* Hooks WebSocket events to swallow unwanted state updates.
+* Auto-cleans fake states when changing voice channels.
+* Toast notifications to confirm toggle actions.
 
 ---
 
-## 📥 Installation (Custom Vencord Userplugin)
+## Installation
 
-1. **Clone Vencord** (if not already):
-   ```bash
-   git clone https://github.com/Vendicated/Vencord
-   cd Vencord
-   pnpm install --frozen-lockfile
-   pnpm build
-````
+### Prerequisites
 
-2. **Create the `userplugins` folder** if it doesn’t exist:
+Before bypassing into custom plugins, ensure:
 
-   ```
-   Vencord/src/userplugins/
-   ```
+* You have a working **Vencord development build**, including installing from source with `git`, `Node.js`, and `pnpm` installed.([Vencord Docs][1], [GitHub][2])
+* You’ve cloned the Vencord repository, installed dependencies via `pnpm install --frozen-lockfile`, then built (`pnpm build`) and injected (`pnpm inject`) it.([Vencord Docs][1])
 
-3. **Add this plugin** inside the `userplugins` folder:
+### Adding Custom (“User”) Plugins
 
-   * As a single file:
+1. **Create the `userplugins` directory**:
+   Inside your Vencord project folder, navigate to `src/` and create a new folder named `userplugins`.([Vencord Docs][3])
 
-     ```
-     Vencord/src/userplugins/FakeMuteDeafen.ts
-     ```
-   * Or in its own folder with `index.ts`:
+2. **Add your plugin**:
+   Copy your plugin—in this case, the `Fake Mute & Deafen` plugin—into `src/userplugins/`. It can be either:
+
+   * A single file:
 
      ```
-     Vencord/src/userplugins/fakeMuteDeafen/index.ts
+     src/userplugins/FakeMuteDeafen.ts
+     ```
+   * Or a folder with an `index.ts` or `index.tsx` entry:
+
+     ```
+     src/userplugins/fakeMuteDeafen/index.ts
      ```
 
-   ✅ Correct
+([Vencord Docs][3], [Vencord Docs][4])
+
+3. **Rebuild Vencord**:
+   After placing the plugin file or folder, run:
 
    ```
-   src/userplugins/FakeMuteDeafen.ts
-   src/userplugins/fakeMuteDeafen/index.ts
-   ```
-
-   ❌ Incorrect
-
-   ```
-   src/userplugins/somefolder/FakeMuteDeafen.ts
-   src/userplugins/nested/folder/FakeMuteDeafen/index.ts
-   ```
-
-4. **Rebuild Vencord**:
-
-   ```bash
    pnpm build
    ```
 
-5. **Inject Vencord**:
-
-   ```bash
-   pnpm inject
-   ```
-
-6. **Restart Discord**.
-   You’ll now find **Fake Mute & Deafen** in the Vencord Plugins tab. Enable it and you’re ready to go.
+   Restart Discord afterward—your plugin should now appear under the Vencord Plugins list.([Vencord Docs][3])
 
 ---
 
-## 🎮 Usage
+## Usage
 
-* Right-click the **Mute** or **Deafen** button in the Discord UI.
-* Select **Fake Mute** or **Fake Deafen** from the menu.
-* When active:
-
-  * Others will see you muted/deafened.
-  * You will still be able to hear/speak.
-  * Buttons glow **yellow** to indicate fake status.
-
----
-
-## 🧹 Auto-Cleanup
-
-* Changing voice channels automatically clears fake states.
-* Real undeafen will bounce fake mute back to keep consistency.
+* Open Discord with Vencord loaded.
+* Navigate to **User Settings → Vencord → Plugins**.
+* Find **Fake Mute & Deafen** in the list and turn the toggle **on**.
+* Right-click the **Mute** or **Deafen** button in the Discord UI and select **Fake Mute** or **Fake Deafen**.
+* The buttons glow yellow when fake mode is active.
+* Changing voice channels or real state changes will automatically clear fake status.
 
 ---
 
-## 🛑 Disclaimer
+## Auto-Cleanup
 
-This plugin is for **educational and entertainment purposes only**.
-Use responsibly, don’t abuse it, and remember: this doesn’t give you real privacy.
+* Moving between voice channels or performing a real undeafen will clear or adjust fake mode to avoid inconsistent states.
 
 ---
 
-## 👤 Author
+## Disclaimer
+
+This plugin is strictly for **educational and entertainment purposes** only.
+It does **not** provide real privacy or security. Use responsibly.
+
+---
+
+## Author
 
 * **gastrophobic** (Discord: `1225242988716757052`)
 
-```
+---
 
-Do you also want me to give you the **raw `.gitignore`** and **raw LICENSE** files so the whole repo is ready to push?
-```
+### Summary of Installation Steps (Table)
+
+| Step | Action                                                             |
+| ---- | ------------------------------------------------------------------ |
+| 1    | Ensure Vencord is installed from source and working (build/inject) |
+| 2    | Create `src/userplugins` directory in the Vencord repo             |
+| 3    | Add your plugin file or folder inside `userplugins`                |
+| 4    | Run `pnpm build`, then restart Discord                             |
+| 5    | Enable plugin from Vencord settings in Discord                     |
+
+---
+
+Let me know if you'd like further tweaks—maybe clearer developer instructions, code templates, or even a visual guide!
+
+[1]: https://docs.vencord.dev/installing/?utm_source=chatgpt.com "Installing Vencord | Vencord Docs"
+[2]: https://github.com/chunkbanned/VCUserPluginsInstaller?utm_source=chatgpt.com "This script will help people install custom plugins to Vencord."
+[3]: https://docs.vencord.dev/installing/custom-plugins/?utm_source=chatgpt.com "Installing custom plugins - Vencord Docs"
+[4]: https://docs.vencord.dev/intro/?utm_source=chatgpt.com "Introduction - Vencord Docs"
